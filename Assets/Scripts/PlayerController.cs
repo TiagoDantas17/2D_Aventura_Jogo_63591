@@ -17,17 +17,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // 1. Lê a direção (X e Y) da MoveAction
+        // Lê o valor do input (teclas)
         Vector2 move = moveAction.ReadValue<Vector2>();
 
-        // 2. Mostra os valores no Console (útil para testar)
-        Debug.Log(move);
+        // Calcula a posição usando 'transform' (em inglês) e Time.deltaTime para velocidade constante
+        Vector2 position = (Vector2)transform.position + move * 3.0f * Time.deltaTime;
 
-        // 3. Calcula a nova posição (0.1f é a velocidade fixa por enquanto)
-        Vector2 position = (Vector2)transform.position + move * 0.1f;
-
-        // 4. Aplica a posição
+        // Aplica a nova posição ao objeto
         transform.position = position;
     }
 }
