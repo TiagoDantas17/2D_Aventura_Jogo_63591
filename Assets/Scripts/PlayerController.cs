@@ -18,15 +18,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        // Esta linha substitui todos os "ifs" anteriores!
+        // 1. Lê a direção (X e Y) da MoveAction
         Vector2 move = moveAction.ReadValue<Vector2>();
 
-        Vector2 position = transform.position;
+        // 2. Mostra os valores no Console (útil para testar)
+        Debug.Log(move);
 
-        // Movimento suave usando a nova MoveAction
-        position.x = position.x + 3.0f * move.x * Time.deltaTime;
-        position.y = position.y + 3.0f * move.y * Time.deltaTime;
+        // 3. Calcula a nova posição (0.1f é a velocidade fixa por enquanto)
+        Vector2 position = (Vector2)transform.position + move * 0.1f;
 
+        // 4. Aplica a posição
         transform.position = position;
     }
 }

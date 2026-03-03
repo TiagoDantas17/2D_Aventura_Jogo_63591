@@ -488,23 +488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3aecb834c3970448ac6cf4fb520157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  leftAction:
-    m_Name: Left
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 58bf35c8-9440-4bdf-baf9-ea412cb09d50
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 8bc481df-df5c-4e27-a17e-24a85f9e0b1e
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Left
-      m_Flags: 0
-    m_Flags: 0
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -553,6 +536,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move
       m_Flags: 8
+    - m_Name: 
+      m_Id: e1bad91a-377a-4f48-94f2-4314378a06ec
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 0
     m_Flags: 0
 --- !u!1 &1917205264
 GameObject:
