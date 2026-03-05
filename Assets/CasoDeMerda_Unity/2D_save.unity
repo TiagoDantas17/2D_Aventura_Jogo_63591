@@ -881,6 +881,34 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.6521108, y: 1.5653532}
   m_EdgeRadius: 0
+--- !u!1 &1585577506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1269196488594882112, guid: dc62c0bae57126b4bbfb22ec23b48106,
+    type: 3}
+  m_PrefabInstance: {fileID: 4331346948023202886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1585577512
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585577506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b77822e0485373d40b5beb92e9a5e728, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1662505511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2089101428410749427, guid: d9dd0aaf571d43843ad405266e3ff2e2,
@@ -4393,7 +4421,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1269196488594882112, guid: dc62c0bae57126b4bbfb22ec23b48106,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1585577512}
   m_SourcePrefab: {fileID: 100100000, guid: dc62c0bae57126b4bbfb22ec23b48106, type: 3}
 --- !u!1001 &5396580376622655917
 PrefabInstance:
