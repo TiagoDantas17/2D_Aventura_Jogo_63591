@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a4cc2e33624ec498e0d2498f23ec58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  velocidade: 5
+  velocidade: 4
   vertical: 1
   mudancaTempo: 1
 --- !u!1 &1070746113 stripped
@@ -4620,6 +4620,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: -1983236356769877877, guid: bc4636f8c108878439c074d9225e0470,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a1f7d7cf416b61c4f88a44dde556cd3a, type: 2}
     - target: {fileID: 6804671245441577057, guid: bc4636f8c108878439c074d9225e0470,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4702,7 +4707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a4cc2e33624ec498e0d2498f23ec58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  velocidade: 1
+  velocidade: 2
   vertical: 0
   mudancaTempo: 3
 --- !u!1001 &7568696026673334458
