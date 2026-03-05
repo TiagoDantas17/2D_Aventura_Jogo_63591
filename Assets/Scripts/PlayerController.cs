@@ -68,6 +68,6 @@ public class PlayerController : MonoBehaviour
 
         // Aplica a mudança de vida e garante que fica entre 0 e o Máximo
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log("Saúde atual: " + currentHealth + "/" + maxHealth);
+        UIHandler.instance.SetHealthValue(currentHealth / (float)maxHealth);
     }
 }
