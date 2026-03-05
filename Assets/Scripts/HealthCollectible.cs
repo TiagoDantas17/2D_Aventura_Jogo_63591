@@ -9,12 +9,19 @@ public class SaudeColecionavel : MonoBehaviour
     {
         PlayerController controlador = outro.GetComponent<PlayerController>();
 
-      if (controlador != null)
-      {
+        if (controlador != null && controlador.health < controlador.maxHealth)
+        {
             
           controlador.ChangeHealth(1);
 
           Destroy(gameObject);
       }
+       
+        
+        else if (controlador != null)
+        {
+            // Opcional: Apenas para saber o porque da fruta não foi destruída
+            Debug.Log("Ruby já está com a saúde na capacidade máxima!");
+        }
     }
 }

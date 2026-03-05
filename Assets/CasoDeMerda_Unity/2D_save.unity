@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 897752951}
   - component: {fileID: 897752952}
   - component: {fileID: 897752953}
+  - component: {fileID: 897752954}
   m_Layer: 0
   m_Name: DamageZone
   m_TagString: Untagged
@@ -711,7 +712,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -724,9 +725,21 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 1
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   m_Size: {x: 3.3994212, y: 3.1643834}
   m_EdgeRadius: 0
+--- !u!114 &897752954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897752950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995560566d260044bb5be2a5baba6e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageZone
 --- !u!1 &1070746113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5448210088427793217, guid: b7a1944fba1434844b41464b281c3d60,
@@ -925,6 +938,7 @@ GameObject:
   - component: {fileID: 1662505511}
   - component: {fileID: 1662505512}
   - component: {fileID: 1662505513}
+  - component: {fileID: 1662505514}
   m_Layer: 0
   m_Name: DamageZone (2)
   m_TagString: Untagged
@@ -1035,7 +1049,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1048,9 +1062,21 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 1
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   m_Size: {x: 5.548341, y: 2.5264227}
   m_EdgeRadius: 0
+--- !u!114 &1662505514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662505510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995560566d260044bb5be2a5baba6e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageZone
 --- !u!1 &1714918545 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1530707578970721806, guid: 7824cded1336010439ad1fae4f71386a,
@@ -1120,6 +1146,7 @@ GameObject:
   - component: {fileID: 1717749792}
   - component: {fileID: 1717749793}
   - component: {fileID: 1717749794}
+  - component: {fileID: 1717749795}
   m_Layer: 0
   m_Name: DamageZone (1)
   m_TagString: Untagged
@@ -1230,7 +1257,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1243,9 +1270,21 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 1
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   m_Size: {x: 9.531686, y: 3.2447186}
   m_EdgeRadius: 0
+--- !u!114 &1717749795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717749791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995560566d260044bb5be2a5baba6e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageZone
 --- !u!4 &1827527003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3416357311817238816, guid: c96e25af1de99cc4cb3c30ddc3a4edb1,
@@ -4464,6 +4503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238337924936773085, guid: dc62c0bae57126b4bbfb22ec23b48106,
+        type: 3}
+      propertyPath: timeInvincible
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1269196488594882112, guid: dc62c0bae57126b4bbfb22ec23b48106,
         type: 3}
