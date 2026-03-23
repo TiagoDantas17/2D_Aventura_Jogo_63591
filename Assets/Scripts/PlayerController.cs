@@ -5,10 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    
+
     public InputAction moveAction;
     Rigidbody2D rigidbody2d;
+    Animator animator;
+
     Vector2 move;
+    Vector2 moveDirection = new Vector2(1, 0);
+
     public float speed = 3.0f;
 
     public int maxHealth = 5;
@@ -22,18 +26,26 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         moveAction.Enable();
-      
+
         rigidbody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         currentHealth = maxHealth;
     }
 
-   
+
     void Update()
     {
 
         move = moveAction.ReadValue<Vector2>();
-        // Debug.Log(move);
+
+
+
+        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        {
+            moveDirection.Set(move.x, move.y);
+            moveDirection.Normalize();
+        }
 
         if (isInvincible)
         {
@@ -43,31 +55,37 @@ public class PlayerController : MonoBehaviour
                 isInvincible = false;
             }
         }
-    } 
+    }
 
-   
+
     void FixedUpdate()
     {
         Vector2 position = (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
         rigidbody2d.MovePosition(position);
-    
-    } 
+
+        //  Liga os dados ao Animator
+        animator.SetFloat("Look X", moveDirection.x);
+        animator.SetFloat("Look Y", moveDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
+    }
 
     public void ChangeHealth(int amount)
     {
         if (amount < 0)
         {
-            // Se ela já estiver invencível, ignoramos o dano e saímos da função
+       
             if (isInvincible)
                 return;
 
-            // Se não estava invencível, agora fica!
+        
             isInvincible = true;
             invincibleTimer = timeInvincible;
         }
 
-        // Aplica a mudança de vida e garante que fica entre 0 e o Máximo
+
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         UIHandler.instance.SetHealthValue(currentHealth / (float)maxHealth);
+    
     }
+
 }
