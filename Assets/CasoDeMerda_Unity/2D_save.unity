@@ -4427,12 +4427,17 @@ PrefabInstance:
     - target: {fileID: 238337924936773085, guid: dc62c0bae57126b4bbfb22ec23b48106,
         type: 3}
       propertyPath: launchAction.m_SingletonActionBindings.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 238337924936773085, guid: dc62c0bae57126b4bbfb22ec23b48106,
         type: 3}
       propertyPath: launchAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: 579a4df7-1b8d-46be-8006-064bd462d45e
+      value: 2516df1a-8ebb-4f41-8ffe-ba31d95821a1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238337924936773085, guid: dc62c0bae57126b4bbfb22ec23b48106,
+        type: 3}
+      propertyPath: launchAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/space
       objectReference: {fileID: 0}
     - target: {fileID: 238337924936773085, guid: dc62c0bae57126b4bbfb22ec23b48106,
         type: 3}
