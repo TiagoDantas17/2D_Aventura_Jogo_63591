@@ -163,7 +163,18 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 0
     m_Flags: 0
+  launchAction:
+    m_Name: Launch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 48c60a3b-a7ff-4669-9cb7-bc2f66b4b500
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   speed: 3
+  projectilePrefab: {fileID: 0}
+  launchForce: 300
   maxHealth: 5
   timeInvincible: 2
 --- !u!50 &8176513474779573217
