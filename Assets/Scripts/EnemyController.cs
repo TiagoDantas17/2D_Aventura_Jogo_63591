@@ -7,17 +7,21 @@ public class EnemyController : MonoBehaviour
     public bool vertical;
     public float mudancaTempo = 3.0f;
 
+    // --- PASSO 2: Nova variável para o estado do inimigo ---
+    bool broken = true;
+
     // Componentes e controle interno
     Rigidbody2D rigidbody2d;
-    Animator animator; // Variável para controlar as animações
+    Animator animator;
     float temporizador;
     int direcao = 1;
 
     void Start()
     {
+
         rigidbody2d = GetComponent<Rigidbody2D>();
 
-        // Conecta o componente Animator ao script
+       
         animator = GetComponent<Animator>();
 
         temporizador = mudancaTempo;
@@ -25,36 +29,49 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        // Se o inimigo não estiver mais quebrado, paramos de contar o tempo
+        if (!broken)
+        {
+            return;
+        }
+
         temporizador -= Time.deltaTime;
 
         if (temporizador < 0)
         {
-           
+
             direcao = -direcao;
-            
+
             temporizador = mudancaTempo;
+
         }
     }
 
     void FixedUpdate()
     {
+        // --- PASSO 3: Verifica se o inimigo está consertado ---
+        if (!broken)
+        {
+            return; // Sai da função e o inimigo para de se mover
+        }
+
         Vector2 posicao = rigidbody2d.position;
 
         if (vertical)
         {
-            // Movimento Vertical
-            posicao.y += velocidade * direcao * Time.deltaTime;
 
-            // Envia os dados para o Animator
+            posicao.y += velocidade * direcao * Time.deltaTime;
+            
+            
             animator.SetFloat("MoveX", 0);
             animator.SetFloat("MoveY", direcao);
         }
         else
         {
-            // Movimento Horizontal
+
             posicao.x += velocidade * direcao * Time.deltaTime;
 
-            // Envia os dados para o Animator
+
             animator.SetFloat("MoveX", direcao);
             animator.SetFloat("MoveY", 0);
         }
@@ -70,5 +87,15 @@ public class EnemyController : MonoBehaviour
         {
             jogador.ChangeHealth(-1);
         }
+    }
+
+    // --- PASSO 4: Nova função pública para consertar o robô ---
+    public void Fix()
+    {
+        broken = false;
+        rigidbody2d.simulated = false;
+
+        // Dica: Se você tiver uma animação de "Fix", pode disparar aqui!
+        // animator.SetTrigger("Fixed"); 
     }
 }

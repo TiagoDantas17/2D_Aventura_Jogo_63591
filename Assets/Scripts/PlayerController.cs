@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public InputAction moveAction;
     public InputAction launchAction;
+    public InputAction talkAction; // Ação para falar
 
     Rigidbody2D rigidbody2d;
     Animator animator;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         moveAction.Enable();
         launchAction.Enable();
+        talkAction.Enable();
 
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
 
     void Update()
+
     {
 
         move = moveAction.ReadValue<Vector2>();
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
 
         {
+
             moveDirection.Set(move.x, move.y);
             moveDirection.Normalize();
         }
@@ -57,6 +61,12 @@ public class PlayerController : MonoBehaviour
         if (launchAction.WasPressedThisFrame())
         {
             Launch();
+        }
+
+        // Verifica se apertou X para falar
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            FindFriend();
         }
 
         if (isInvincible)
@@ -72,6 +82,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+
         Vector2 position = rigidbody2d.position + move * speed * Time.deltaTime;
         rigidbody2d.MovePosition(position);
 
@@ -79,6 +90,24 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Look X", moveDirection.x);
         animator.SetFloat("Look Y", moveDirection.y);
         animator.SetFloat("Speed", move.magnitude);
+    }
+
+    void FindFriend()
+    {
+        // Isto desenha uma linha vermelha na aba SCENE (não na aba Game) quando carregas no X
+        Debug.DrawRay(rigidbody2d.position + Vector2.up * 0.2f, moveDirection * 1.5f, Color.red, 1.0f);
+
+        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, LayerMask.GetMask("NPC"));
+
+        if (hit.collider != null)
+        {
+            Debug.Log("O raio bateu em: " + hit.collider.name);
+            UIHandler.instance.DisplayDialogue();
+        }
+        else
+        {
+            Debug.Log("O raio não encontrou nada na Layer NPC.");
+        }
     }
 
     void Launch()
@@ -90,17 +119,14 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Launch");
     }
 
+
     public void ChangeHealth(int amount)
     {
 
         if (amount < 0)
 
         {
-
-            if (isInvincible)
-                return;
-
-
+            if (isInvincible) return;
             isInvincible = true;
             invincibleTimer = timeInvincible;
 
