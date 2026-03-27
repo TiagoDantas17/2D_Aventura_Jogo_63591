@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_2DAdventureGame/Tutorial_Demo/Demo_Art/Ruby/UI/UIDialogueBox.png?fileID=21300000&amp;guid=e19efba90db658c4980b2a4d32206764&amp;type=3#UIDialogueBox&quot;); align-items: flex-start; justify-content: center; align-content: auto; align-self: center; background-size: 500px 150px; position: absolute; bottom: 0%; right: 10%; top: 70%; left: 10%;">
+        <ui:Label text="       &#10;&#10;        Olá eu sou o Sapo!" name="Label" style="-unity-font-style: bold; height: 102px; width: 500px; justify-content: center; align-items: center; white-space: normal; -unity-text-align: upper-left; left: -2%; top: -45%; right: 0%; bottom: 50%; font-size: 30px;"/>
+    </ui:VisualElement>
+</ui:UXML>

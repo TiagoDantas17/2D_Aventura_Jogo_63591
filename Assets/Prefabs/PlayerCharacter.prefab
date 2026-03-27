@@ -13,10 +13,11 @@ GameObject:
   - component: {fileID: 238337924936773085}
   - component: {fileID: 8176513474779573217}
   - component: {fileID: 2004608670370984477}
-  - component: {fileID: -3135352198550187979}
-  m_Layer: 0
+  - component: {fileID: 8546300170390120932}
+  - component: {fileID: 9141449143866730588}
+  m_Layer: 8
   m_Name: PlayerCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,6 +39,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1994204724951975786
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83,6 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 8b57a1129cd09fc42b17481b164e9f32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +95,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &238337924936773085
 MonoBehaviour:
@@ -170,13 +172,31 @@ MonoBehaviour:
     m_Id: 48c60a3b-a7ff-4669-9cb7-bc2f66b4b500
     m_Processors: 
     m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2516df1a-8ebb-4f41-8ffe-ba31d95821a1
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Launch
+      m_Flags: 0
+    m_Flags: 0
+  talkAction:
+    m_Name: Talk
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f11b2e39-59d8-44b9-8082-1fb08a92c03b
+    m_Processors: 
+    m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
   speed: 3
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 6038218737777078873, guid: bc5903006dfe7fe4f8647ea451fa95dd,
+    type: 3}
   launchForce: 300
   maxHealth: 5
-  timeInvincible: 2
+  timeInvincible: 1
 --- !u!50 &8176513474779573217
 Rigidbody2D:
   serializedVersion: 5
@@ -203,7 +223,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2004608670370984477
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -250,7 +270,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.22, y: 0.8901285}
   m_EdgeRadius: 0
---- !u!95 &-3135352198550187979
+--- !u!95 &8546300170390120932
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -272,3 +292,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9141449143866730588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269196488594882112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24235ac3b7ca8fe49b4863aa02d3abcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  distancia: 2.5
+  camadaNPC:
+    serializedVersion: 2
+    m_Bits: 64

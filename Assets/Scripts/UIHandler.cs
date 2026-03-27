@@ -1,56 +1,87 @@
-
 using UnityEngine;
-using TMPro; // Se usares TextMeshPro
-
+using UnityEngine.UIElements;
 
 public class UIHandler : MonoBehaviour
 {
-
+    private VisualElement m_Healthbar;
     public static UIHandler instance { get; private set; }
 
-    public GameObject dialoguePanel; // Arraste o Painel aqui no Inspetor
+    public UIDocument uiDocument;
+
     public float displayTime = 4.0f;
+    private VisualElement m_NonPlayerDialogue;
     private float m_TimerDisplay;
 
-    void Awake()
+    private void Awake()
     {
         instance = this;
     }
 
-
-    void Start()
-
+    private void Start()
     {
-        if (dialoguePanel != null)
+        if (uiDocument == null)
         {
-            dialoguePanel.SetActive(false); // Garante que começa escondido
+            Debug.LogError("Falta ligar o UIDocument no Inspector.");
+            return;
         }
+
+        VisualElement root = uiDocument.rootVisualElement;
+
+        if (root == null)
+        {
+            Debug.LogError("rootVisualElement está vazio.");
+            return;
+        }
+
+        m_Healthbar = root.Q<VisualElement>("HealthBar");
+        if (m_Healthbar == null)
+        {
+            Debug.LogError("Não encontrou 'HealthBar'.");
+        }
+
+        m_NonPlayerDialogue = root.Q<VisualElement>("Background");
+        if (m_NonPlayerDialogue == null)
+        {
+            Debug.LogError("Não encontrou 'Background'.");
+            return;
+        }
+
+        if (m_Healthbar != null)
+        {
+            SetHealthValue(1.0f);
+        }
+
+        m_NonPlayerDialogue.style.display = DisplayStyle.None;
         m_TimerDisplay = -1.0f;
     }
 
-    void Update()
+    private void Update()
     {
         if (m_TimerDisplay > 0)
         {
             m_TimerDisplay -= Time.deltaTime;
-            if (m_TimerDisplay <= 0)
+
+            if (m_TimerDisplay < 0 && m_NonPlayerDialogue != null)
             {
-                dialoguePanel.SetActive(false);
+                m_NonPlayerDialogue.style.display = DisplayStyle.None;
             }
+        }
+    }
+
+    public void SetHealthValue(float percentage)
+    {
+        if (m_Healthbar != null)
+        {
+            m_Healthbar.style.width = Length.Percent(100 * percentage);
         }
     }
 
     public void DisplayDialogue()
     {
-        if (dialoguePanel != null)
+        if (m_NonPlayerDialogue != null)
         {
-            Debug.Log("UIHandler: A receber ordem para mostrar o diálogo!");
-            dialoguePanel.SetActive(true);
+            m_NonPlayerDialogue.style.display = DisplayStyle.Flex;
             m_TimerDisplay = displayTime;
         }
     }
-   
-
-// Função para a barra de vida (opcional se não tiveres barra)
-public void SetHealthValue(float percentage) { }
 }

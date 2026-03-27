@@ -2,5 +2,8 @@ using UnityEngine;
 
 public class NonPlayerCharacter : MonoBehaviour
 {
-    // Este script serve como uma "etiqueta" para o Raycast do jogador
+    public void Falar()
+    {
+        UIHandler.instance.DisplayDialogue();
+    }
 }
