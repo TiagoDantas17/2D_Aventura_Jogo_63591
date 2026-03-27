@@ -769,13 +769,14 @@ GameObject:
   m_Component:
   - component: {fileID: 784869064}
   - component: {fileID: 784869063}
+  - component: {fileID: 784869065}
   m_Layer: 5
   m_Name: NPCDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &784869063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -815,6 +816,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &784869065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784869062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6bfaeeb58bb24419809701469ad841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIHandler
+  uiDocument: {fileID: 784869063}
+  displayTime: 4
 --- !u!4 &897752951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1104339756324796059, guid: c8b2bd46aaab9a54381483922369437e,

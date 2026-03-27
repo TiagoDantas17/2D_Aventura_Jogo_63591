@@ -1,5 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="GameUI" src="project://database/Assets/GameUI.uxml?fileID=9197481963319205126&amp;guid=3d9a094f5e6f4cf418b458e313043b3a&amp;type=3#GameUI"/>
     <ui:VisualElement name="Background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_2DAdventureGame/Tutorial_Demo/Demo_Art/Ruby/UI/UIDialogueBox.png?fileID=2800000&amp;guid=e19efba90db658c4980b2a4d32206764&amp;type=3#UIDialogueBox&quot;); padding-top: 25px; padding-right: 25px; padding-bottom: 25px; padding-left: 25px; left: 24%; top: 70%; right: 5%; bottom: 2%; position: absolute; height: 250px; width: 1000px;">
         <ui:Label text="Ola, eu sou o Sapo!" name="Label" style="-unity-font-style: bold; -unity-font-definition: url(&quot;project://database/Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Fonts/PerfectDOSVGA437.ttf?fileID=12800000&amp;guid=74a5091d8707f334b9a5c31ef71a64ba&amp;type=3#PerfectDOSVGA437&quot;); font-size: 30px; white-space: normal; width: 100%; height: 100%; -unity-text-align: upper-left; left: 5%;"/>
     </ui:VisualElement>
+    <ui:Instance template="GameUI"/>
 </ui:UXML>

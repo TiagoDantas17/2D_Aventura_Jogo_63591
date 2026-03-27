@@ -29,20 +29,20 @@ public class UIHandler : MonoBehaviour
 
         if (root == null)
         {
-            Debug.LogError("rootVisualElement está vazio.");
+           Debug.Log("rootVisualElement está vazio.");
             return;
         }
 
         m_Healthbar = root.Q<VisualElement>("HealthBar");
         if (m_Healthbar == null)
         {
-            Debug.LogError("Não encontrou 'HealthBar'.");
+           Debug.Log("Não encontrou 'HealthBar'.");
         }
 
         m_NonPlayerDialogue = root.Q<VisualElement>("Background");
         if (m_NonPlayerDialogue == null)
         {
-            Debug.LogError("Não encontrou 'Background'.");
+            Debug.Log("Não encontrou 'Background'.");
             return;
         }
 
@@ -78,8 +78,12 @@ public class UIHandler : MonoBehaviour
 
     public void DisplayDialogue()
     {
+        Debug.Log("DisplayDialogue 1");
+
         if (m_NonPlayerDialogue != null)
         {
+            Debug.Log("DisplayDialogue 2");
+
             m_NonPlayerDialogue.style.display = DisplayStyle.Flex;
             m_TimerDisplay = displayTime;
         }
