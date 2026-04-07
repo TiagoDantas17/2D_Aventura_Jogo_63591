@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rigidbody2d;
     Animator animator;
+    AudioSource audioSource;
 
     Vector2 move;
     Vector2 moveDirection = new Vector2(1, 0);
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         currentHealth = maxHealth;
     }
@@ -118,6 +120,10 @@ public class PlayerController : MonoBehaviour
 
         animator.SetTrigger("Launch");
     }
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 
 
     public void ChangeHealth(int amount)
@@ -131,6 +137,8 @@ public class PlayerController : MonoBehaviour
             invincibleTimer = timeInvincible;
 
         }
+
+
 
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
