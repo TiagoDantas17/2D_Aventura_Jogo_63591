@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Variáveis de movimento
     public float velocidade = 3.0f;
     public bool vertical;
     public float mudancaTempo = 3.0f;
 
-    // Estado do inimigo
+    public ParticleSystem fumeEfeito;
+    public GameObject efeitoMorte;
+
     bool broken = true;
 
-    // Componentes e controle interno
     Rigidbody2D rigidbody2d;
     Animator animator;
     AudioSource audioSource;
@@ -56,15 +56,21 @@ public class EnemyController : MonoBehaviour
         {
             posicao.y += velocidade * direcao * Time.deltaTime;
 
-            animator.SetFloat("MoveX", 0);
-            animator.SetFloat("MoveY", direcao);
+            if (animator != null)
+            {
+                animator.SetFloat("MoveX", 0);
+                animator.SetFloat("MoveY", direcao);
+            }
         }
         else
         {
             posicao.x += velocidade * direcao * Time.deltaTime;
 
-            animator.SetFloat("MoveX", direcao);
-            animator.SetFloat("MoveY", 0);
+            if (animator != null)
+            {
+                animator.SetFloat("MoveX", direcao);
+                animator.SetFloat("MoveY", 0);
+            }
         }
 
         rigidbody2d.MovePosition(posicao);
@@ -72,6 +78,11 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D outro)
     {
+        if (!broken)
+        {
+            return;
+        }
+
         PlayerController jogador = outro.gameObject.GetComponent<PlayerController>();
         if (jogador != null)
         {
@@ -82,13 +93,38 @@ public class EnemyController : MonoBehaviour
     public void Fix()
     {
         broken = false;
-        rigidbody2d.simulated = false;
+
+        if (rigidbody2d != null)
+        {
+            rigidbody2d.linearVelocity = Vector2.zero;
+            rigidbody2d.simulated = false;
+        }
 
         if (audioSource != null)
         {
             audioSource.Stop();
         }
 
-        // animator.SetTrigger("Fixed");
+        if (fumeEfeito != null)
+        {
+            fumeEfeito.Stop();
+        }
+
+        if (efeitoMorte != null)
+        {
+            Instantiate(efeitoMorte, transform.position, Quaternion.identity);
+        }
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        // Se tiveres animação de consertado, usa isto:
+        // if (animator != null)
+        // {
+        //     animator.SetTrigger("Fixed");
+        // }
     }
 }

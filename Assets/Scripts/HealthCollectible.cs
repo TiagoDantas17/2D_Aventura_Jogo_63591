@@ -8,6 +8,9 @@ public class SaudeColecionavel : MonoBehaviour
 
     AudioSource audioSource;
 
+    // ✨ novo: efeito de partículas
+    public GameObject efeitoPickup;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -21,10 +24,19 @@ public class SaudeColecionavel : MonoBehaviour
         {
             controlador.ChangeHealth(valorCura);
 
-            // 🔊 tocar som
-            audioSource.PlayOneShot(audioSource.clip);
+            // ✨ criar efeito de partículas
+            if (efeitoPickup != null)
+            {
+                Instantiate(efeitoPickup, transform.position, Quaternion.identity);
+            }
 
-            // destruir depois de um pequeno delay para dar tempo ao som
+            // 🔊 tocar som
+            if (audioSource != null && audioSource.clip != null)
+            {
+                audioSource.PlayOneShot(audioSource.clip);
+            }
+
+            // destruir depois de um pequeno delay
             Destroy(gameObject, 0.2f);
         }
         else if (controlador != null)
